@@ -1,9 +1,9 @@
 import api from './api.js';
 
-var ws = new WebSocket('ws://localhost:8081/socket');
+var ws = new WebSocket('ws://localhost:8081/');
 export default ws;
 
-ws.onmessage = ev => {
+ws.addEventListener("message", ev => {
 	// this will already throw an error if the message doesn't contain valid JSON
 	const msg = JSON.parse(ev.data);
 
@@ -15,5 +15,9 @@ ws.onmessage = ev => {
 
 	// run the appropriate message handler
 	api.msg.handle[msg.type](msg);
-};
+});
+
+ws.addEventListener("close", () => {
+	console.error("WebSocket closed!");
+});
 
