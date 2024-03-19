@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Sections Layout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<script src="jquery.js"></script> 
+<script> 
+    $(function(){
+      $("#overview_control_src").load("overview_control.html"); 
+    });
+</script> 
+<body>
+    <div class="container">
+        <div class="section overview_control">
+            <ul>
+                <li class="list-item"> 
+                    <span class="dot" id="dot1"></span> Fotocellen
+                    <div class="buttons">
+                        <button onclick="turnOn('dot1')">On</button>
+                        <button onclick="turnOff('dot1')">Off</button>
+                    </div>
+                </li>
+                <li class="list-item"> 
+                    <span class="dot" id="dot2"></span> CCTV
+                    <div class="buttons">
+                        <button onclick="turnOn('dot2')">On</button>
+                        <button onclick="turnOff('dot2')">Off</button>
+                    </div>
+                </li>
+                <li class="list-item"> 
+                    <span class="dot" id="dot3"></span> Verlichting
+                    <div class="buttons">
+                        <button onclick="turnOn('dot3')">On</button>
+                        <button onclick="turnOff('dot3')">Off</button>
+                    </div>
+                </li>
+                <li class="list-item"> 
+                    <span class="dot" id="dot4"></span> Verkeerslicht
+                    <div class="buttons">
+                        <button onclick="turnOn('dot4')">On</button>
+                        <button onclick="turnOff('dot4')">Off</button>
+                    </div>
+                </li>
+                <li class="list-item"> 
+                    <span class="dot" id="dot5"></span> Slagboom
+                    <div class="buttons">
+                        <button onclick="turnOn('dot5')">On</button>
+                        <button onclick="turnOff('dot5')">Off</button>
+                    </div>
+                </li>
+                <li class="list-item"> 
+                    <span class="dot" id="dot6"></span> Matrixbord
+                    <div class="buttons">
+                        <select class="dropdown" onchange="selectOption(this.value)">
+                            <option value="wegafsluiting">Wegafsluiting</option>
+                            <option value="werkzaamheden">Werkzaamheden</option>
+                            <option value="uitschakelen">Uitschakelen</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        
+            <script>
+            function turnOn(dotId) {
+                var dot = document.getElementById(dotId);
+                dot.style.backgroundColor = 'green';
+            }
+
+            function turnOff(dotId) {
+                var dot = document.getElementById(dotId);
+                dot.style.backgroundColor = 'red';
+            }
+            function selectOption(option) {
+                // Empty script placeholder for now
+                console.log("Selected option: " + option);
+            }
+
+            </script>
+        </div>
+        <div class="section notifications" id="sectionNotifications">
+            <div class="button-wrapper">
+                <button id="addRowBtn">Add Row</button>
+            </div>
+            <div class="table-wrapper">
+                <table id="myTable">
+                    <tr>
+                        <th>Column 1</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="section map">This is a map</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
