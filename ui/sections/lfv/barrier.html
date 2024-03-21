@@ -1,0 +1,10 @@
+<h2>Barrier Control</h2>
+<button onclick="setStatus('Open')">Open</button>
+<button onclick="setStatus('Close')">Close</button>
+<div id="statusDisplay">Status: </div>
+
+<script>
+    function setStatus(status) {
+        document.getElementById('statusDisplay').innerText = `Status: ${status}`;
+    }
+</script>
