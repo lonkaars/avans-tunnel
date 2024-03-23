@@ -27,9 +27,9 @@ body, html {
 	overflow-y: auto; /* Add vertical scrolling */
 }
 
-.section.overview_control {
+/*.section.overview_control { 
 	grid-row: 1 / span 2; /* Span the top left section across both rows */
-}
+/*}*/
 
 .table-wrapper {
 	flex-grow: 1; /* Table wrapper takes remaining space */

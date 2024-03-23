@@ -1,0 +1,10 @@
+<h2>Traffic Lights Control</h2>
+<button onclick="setStatus('Red')">Red</button>
+<button onclick="setStatus('Off')">Off</button>
+<div id="statusDisplay">Status: </div>
+
+<script>
+    function setStatus(status) {
+        document.getElementById('statusDisplay').innerText = `Status: ${status}`;
+    }
+</script>

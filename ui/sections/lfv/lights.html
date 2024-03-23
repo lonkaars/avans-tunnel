@@ -1,0 +1,13 @@
+<h2>Lights Control</h2>
+<ul>
+    <li><button onclick="setPercentage(0)">0%</button></li>
+    <li><button onclick="setPercentage(10)">10%</button></li>
+    <li><button onclick="setPercentage(20)">20%</button></li>
+</ul>
+<div id="percentageDisplay">Percentage: 0%</div>
+
+<script>
+    function setPercentage(percentage) {
+        document.getElementById('percentageDisplay').innerText = `Percentage: ${percentage}%`;
+    }
+</script>

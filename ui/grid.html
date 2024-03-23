@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Four Sections Layout</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="section overview_control" id="overview_control"></div>
+        <div class="section notifications" id="notifications"></div>
+        <div class="section lfv_selector" id="lfv_selector"></div>
+        <div class="section map" id="map"></div>
+    </div>
+
+    <script>
+        // Function to include HTML content from given URL into specified element
+        async function includeHTML(url, elementId) {
+            const response = await fetch(url);
+            const html = await response.text();
+            document.getElementById(elementId).innerHTML = html;
+        }
+
+        // Function to handle item click and load respective HTML page
+        function handleItemClick(event) {
+            const target = event.target.getAttribute('data-target');
+            includeHTML(`sections/lfv/${target}.html`, 'overview_control');
+        }
+
+        // Include HTML content into respective div elements
+        // includeHTML('sections/overview_control.html', 'overview_control');
+        includeHTML('sections/notifications.html', 'notifications');
+        includeHTML('sections/lfv_selector.html', 'lfv_selector');
+        includeHTML('sections/map.html', 'map');
+
+        // Add event listener to each item in the list (event delegation)
+        document.getElementById('lfv_selector').addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                handleItemClick(event);
+            }
+        });
+    </script>
+
+</body>
+</html>
