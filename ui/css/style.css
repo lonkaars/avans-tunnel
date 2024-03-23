@@ -27,9 +27,13 @@ body, html {
 	overflow-y: auto; /* Add vertical scrolling */
 }
 
-/*.section.overview_control { 
+.section.overview_control { 
 	grid-row: 1 / span 2; /* Span the top left section across both rows */
-/*}*/
+	justify-content: unset;
+	align-items: normal;
+	padding: 8px;
+	gap: 8px;
+}
 
 .table-wrapper {
 	flex-grow: 1; /* Table wrapper takes remaining space */
@@ -98,7 +102,7 @@ ul {
 	border: 5px solid black;
 	width: calc(20% - 5px);
 	height: calc(40% - 5px);
-	background-color: gray;
+	background-color: #ccc;
 }
 .traffic-light {
 	width: 20px;
@@ -136,10 +140,23 @@ ul {
 	left: 5px;
 }
 
-
 /* Styles for the inner content of the squares */
 .inner-content {
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
+
+details {
+	border: 1px solid #0008;
+	padding: 4px;
+}
+
+details summary {
+	user-select: none;
+}
+
+details[open] summary {
+	border-bottom: 1px solid #0008;
+}
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,57 +8,110 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script type="module" src="js/main.js"></script>
 </head>
+
 <body>
 	<div class="container">
 		<div class="section overview_control">
-			<ul>
-				<li class="list-item"> 
-					<span class="dot"></span> Fotocellen
-					<div class="buttons">
-						<button onclick="onOffButton(this)" value="1">On</button>
-						<button onclick="onOffButton(this)" value="0">Off</button>
-					</div>
-				</li>
-				<li class="list-item"> 
-					<span class="dot"></span> CCTV
-					<div class="buttons">
-						<button onclick="onOffButton(this)" value="1">On</button>
-						<button onclick="onOffButton(this)" value="0">Off</button>
-					</div>
-				</li>
-				<li class="list-item"> 
-					<span class="dot"></span> Verlichting
-					<div class="buttons">
-						<button onclick="onOffButton(this)" value="1">On</button>
-						<button onclick="onOffButton(this)" value="0">Off</button>
-					</div>
-				</li>
-				<li class="list-item"> 
-					<span class="dot"></span> Verkeerslicht
-					<div class="buttons">
-						<button onclick="onOffButton(this)" value="1">On</button>
-						<button onclick="onOffButton(this)" value="0">Off</button>
-					</div>
-				</li>
-				<li class="list-item"> 
-					<span class="dot"></span> Slagboom
-					<div class="buttons">
-						<button onclick="onOffButton(this)" value="1">On</button>
-						<button onclick="onOffButton(this)" value="0">Off</button>
-					</div>
-				</li>
-				<li class="list-item"> 
-					<span class="dot"></span> Matrixbord
-					<div class="buttons">
-						<select class="dropdown">
-							<option value="wegafsluiting">Wegafsluiting</option>
-							<option value="werkzaamheden">Werkzaamheden</option>
-							<option value="uitschakelen">Uitschakelen</option>
-						</select>
-					</div>
-				</li>
-			</ul>
+
+			<details open>
+				<summary>State controls</summary>
+				<div class="state_controls">
+					<ul>
+						<li class="list-item"> 
+							<span class="dot"></span> Fotocellen
+							<div class="buttons">
+								<button onclick="onOffButton(this)" value="1">On</button>
+								<button onclick="onOffButton(this)" value="0">Off</button>
+							</div>
+						</li>
+						<li class="list-item"> 
+							<span class="dot"></span> CCTV
+							<div class="buttons">
+								<button onclick="onOffButton(this)" value="1">On</button>
+								<button onclick="onOffButton(this)" value="0">Off</button>
+							</div>
+						</li>
+						<li class="list-item"> 
+							<span class="dot"></span> Verlichting
+							<div class="buttons">
+								<button onclick="onOffButton(this)" value="1">On</button>
+								<button onclick="onOffButton(this)" value="0">Off</button>
+							</div>
+						</li>
+						<li class="list-item"> 
+							<span class="dot"></span> Verkeerslicht
+							<div class="buttons">
+								<button onclick="onOffButton(this)" value="1">On</button>
+								<button onclick="onOffButton(this)" value="0">Off</button>
+							</div>
+						</li>
+						<li class="list-item"> 
+							<span class="dot"></span> Slagboom
+							<div class="buttons">
+								<button onclick="onOffButton(this)" value="1">On</button>
+								<button onclick="onOffButton(this)" value="0">Off</button>
+							</div>
+						</li>
+						<li class="list-item"> 
+							<span class="dot"></span> Matrixbord
+							<div class="buttons">
+								<select class="dropdown">
+									<option value="wegafsluiting">Wegafsluiting</option>
+									<option value="werkzaamheden">Werkzaamheden</option>
+									<option value="uitschakelen">Uitschakelen</option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</details>
+
+			<details>
+				<summary>Lights</summary>
+				<div class="light_controls">
+					<ul>
+						<li><button onclick="setPercentage(0)">0%</button></li>
+						<li><button onclick="setPercentage(10)">10%</button></li>
+						<li><button onclick="setPercentage(20)">20%</button></li>
+					</ul>
+					<div id="percentageDisplay">Percentage: 0%</div>
+					<script>
+						function setPercentage(percentage) {
+							document.getElementById('percentageDisplay').innerText = `Percentage: ${percentage}%`;
+						}
+					</script>
+				</div>
+			</details>
+
+			<details>
+				<summary>Traffic lights</summary>
+				<div class="traffic_light_controls">
+					<button onclick="setStatus('Red')">Red</button>
+					<button onclick="setStatus('Off')">Off</button>
+					<div id="statusDisplay">Status: </div>
+					<script>
+						function setStatus(status) {
+							document.getElementById('statusDisplay').innerText = `Status: ${status}`;
+						}
+					</script>
+				</div>
+			</details>
+
+			<details>
+				<summary>Barrier</summary>
+				<div class="barrier_controls">
+					<button onclick="setStatus('Open')">Open</button>
+					<button onclick="setStatus('Close')">Close</button>
+					<div id="statusDisplay">Status: </div>
+					<script>
+						function setStatus(status) {
+							document.getElementById('statusDisplay').innerText = `Status: ${status}`;
+						}
+					</script>
+				</div>
+			</details>
 		</div>
+
 		<div class="section notifications" id="sectionNotifications">
 			<div class="button-wrapper">
 				<button id="addRowBtn">Add Row</button>
@@ -70,6 +124,7 @@
 				</table>
 			</div>
 		</div>
+
 		<div class="section bottom-right">
 			<p>Start</p>
 			<div class="canvas-square" id="myCanvas1">
@@ -100,6 +155,7 @@
 			<p>End</p>	 
 		</div>
 	</div>
+
 </body>
 </html>
 
