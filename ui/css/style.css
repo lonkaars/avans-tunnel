@@ -160,3 +160,7 @@ details[open] summary {
 	border-bottom: 1px solid #0008;
 }
 
+input[type="range"] {
+	width: 100%;
+}
+

@@ -18,47 +18,33 @@
 				<div class="state_controls">
 					<ul>
 						<li class="list-item"> 
-							<span class="dot"></span> Fotocellen
+							<span id="photocellValue" class="dot"></span> Fotocellen
 							<div class="buttons">
-								<button onclick="onOffButton(this)" value="1">On</button>
-								<button onclick="onOffButton(this)" value="0">Off</button>
+								<button value="true" onclick="api.msg.send.photocell(this)">On</button>
+								<button value="false" onclick="api.msg.send.photocell(this)">Off</button>
 							</div>
 						</li>
 						<li class="list-item"> 
-							<span class="dot"></span> CCTV
+							<span id="cctvValue" class="dot"></span> CCTV
 							<div class="buttons">
-								<button onclick="onOffButton(this)" value="1">On</button>
-								<button onclick="onOffButton(this)" value="0">Off</button>
+								<button value="true" onclick="api.msg.send.cctv(this)">On</button>
+								<button value="false" onclick="api.msg.send.cctv(this)">Off</button>
 							</div>
 						</li>
 						<li class="list-item"> 
-							<span class="dot"></span> Verlichting
+							<span id="barrierValue" class="dot"></span> Slagboom
 							<div class="buttons">
-								<button onclick="onOffButton(this)" value="1">On</button>
-								<button onclick="onOffButton(this)" value="0">Off</button>
+								<button value="true" onclick="api.msg.send.barrier(this)">Open</button>
+								<button value="false" onclick="api.msg.send.barrier(this)">Close</button>
 							</div>
 						</li>
 						<li class="list-item"> 
-							<span class="dot"></span> Verkeerslicht
+							Matrixbord
 							<div class="buttons">
-								<button onclick="onOffButton(this)" value="1">On</button>
-								<button onclick="onOffButton(this)" value="0">Off</button>
-							</div>
-						</li>
-						<li class="list-item"> 
-							<span class="dot"></span> Slagboom
-							<div class="buttons">
-								<button onclick="onOffButton(this)" value="1">On</button>
-								<button onclick="onOffButton(this)" value="0">Off</button>
-							</div>
-						</li>
-						<li class="list-item"> 
-							<span class="dot"></span> Matrixbord
-							<div class="buttons">
-								<select class="dropdown">
-									<option value="wegafsluiting">Wegafsluiting</option>
-									<option value="werkzaamheden">Werkzaamheden</option>
-									<option value="uitschakelen">Uitschakelen</option>
+								<select class="dropdown" id="matrixValue" onchange="api.msg.send.matrix(this)">
+									<option value="road_closed">Wegafsluiting</option>
+									<option value="construction">Werkzaamheden</option>
+									<option value="disabled">Uitschakelen</option>
 								</select>
 							</div>
 						</li>
@@ -66,48 +52,20 @@
 				</div>
 			</details>
 
-			<details>
-				<summary>Lights</summary>
+			<details open>
+				<summary>Verlichting</summary>
 				<div class="light_controls">
-					<ul>
-						<li><button onclick="setPercentage(0)">0%</button></li>
-						<li><button onclick="setPercentage(10)">10%</button></li>
-						<li><button onclick="setPercentage(20)">20%</button></li>
-					</ul>
-					<div id="percentageDisplay">Percentage: 0%</div>
-					<script>
-						function setPercentage(percentage) {
-							document.getElementById('percentageDisplay').innerText = `Percentage: ${percentage}%`;
-						}
-					</script>
+					<input type="range" min="0" max="100" step="1" value="0" oninput="api.msg.send.lights(this)"/>
+					<div>Felheid: <span id="lightsValue">0</span>%</div>
 				</div>
 			</details>
 
-			<details>
-				<summary>Traffic lights</summary>
+			<details open>
+				<summary>Stoplichten</summary>
 				<div class="traffic_light_controls">
-					<button onclick="setStatus('Red')">Red</button>
-					<button onclick="setStatus('Off')">Off</button>
-					<div id="statusDisplay">Status: </div>
-					<script>
-						function setStatus(status) {
-							document.getElementById('statusDisplay').innerText = `Status: ${status}`;
-						}
-					</script>
-				</div>
-			</details>
-
-			<details>
-				<summary>Barrier</summary>
-				<div class="barrier_controls">
-					<button onclick="setStatus('Open')">Open</button>
-					<button onclick="setStatus('Close')">Close</button>
-					<div id="statusDisplay">Status: </div>
-					<script>
-						function setStatus(status) {
-							document.getElementById('statusDisplay').innerText = `Status: ${status}`;
-						}
-					</script>
+					<button value="red" onclick="api.msg.send.trafficLights(this)">Rood</button>
+					<button value="off" onclick="api.msg.send.trafficLights(this)">Uit</button>
+					<div>Status: <span id="trafficLightsValue"></span></div>
 				</div>
 			</details>
 

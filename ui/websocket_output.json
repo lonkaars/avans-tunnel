@@ -1,0 +1,16 @@
+{ "type": "photocell", "on": true }
+{ "type": "photocell", "on": false }
+{ "type": "barrier", "on": false }
+{ "type": "barrier", "on": true }
+{ "type": "barrier", "open": true }
+{ "type": "barrier", "open": false }
+{ "type": "matrix", "state": "construction" }
+{ "type": "matrix", "state": "road_closed" }
+{ "type": "matrix", "state": "disabled" }
+{ "type": "lights", "value": 0 }
+{ "type": "lights", "value": 12 }
+{ "type": "lights", "value": 100 }
+{ "type": "trafficLights", "state": "off" }
+{ "type": "trafficLights", "state": "red" }
+{ "type": "helloWorld" }
+{ "type": "helloWorld" }
