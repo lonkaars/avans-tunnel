@@ -55,8 +55,8 @@
 			<details open>
 				<summary>Verlichting</summary>
 				<div class="light_controls">
-					<input type="range" min="0" max="100" step="1" value="0" oninput="api.msg.send.lights(this)"/>
-					<div>Felheid: <span id="lightsValue">0</span>%</div>
+					<input id="lightsInput" type="range" min="0" max="100" step="1" value="0" oninput="api.msg.send.lights(this)"/>
+					<div>Felheid: <span id="lightsValue">??</span>%</div>
 				</div>
 			</details>
 
@@ -65,7 +65,7 @@
 				<div class="traffic_light_controls">
 					<button value="red" onclick="api.msg.send.trafficLights(this)">Rood</button>
 					<button value="off" onclick="api.msg.send.trafficLights(this)">Uit</button>
-					<div>Status: <span id="trafficLightsValue"></span></div>
+					<div>Status: <span id="trafficLightsValue">??</span></div>
 				</div>
 			</details>
 
@@ -78,13 +78,10 @@
 		</div>
 
 		<div class="section notifications" id="sectionNotifications">
-			<div class="button-wrapper">
-				<button id="addRowBtn">Add Row</button>
-			</div>
 			<div class="table-wrapper">
 				<table id="myTable">
 					<tr>
-						<th>Column 1</th>
+						<th>Meldingen</th>
 					</tr>
 				</table>
 			</div>
@@ -94,27 +91,28 @@
 			<p>Start</p>
 			<div class="canvas-square" id="myCanvas1">
 				<div class="inner-content">
-					<div class="traffic-light"></div>
-					<div class="barrier"></div>
-					<span class="square-text-first-row">Light <span id="light-one">1</span></span>
-					<span class="square-text-second-row">Amount <span id="amount-one">1</span></span>
-					<span class="square-text-third-row"><span id="speed-one">1</span>km/h</span>
+					<!-- <div class="traffic-light"></div>
+					<div class="barrier"></div> -->
+					<div>Autos: <span id="zone1CarsValue">??</span></div>
+					<div>Gem.S.: <span id="zone1SpeedValue">??</span> km/h</div>
 				</div>
 			</div>
 			<div class="canvas-square" id="myCanvas2">
 				<div class="inner-content">
-					<span class="square-text-first-row">Light <span id="light-two">1</span></span>
+					<div>Autos: <span id="zone2CarsValue">??</span></div>
+					<div>Gem.S.: <span id="zone2SpeedValue">??</span> km/h</div>
 				</div>
 			</div>
 			<div class="canvas-square" id="myCanvas3">
 				<div class="inner-content">
-					<span class="square-text-first-row">Light <span id="light-three">1</span></span>
-					<span class="square-text-second-row">Amount <span id="amount-two">1</span></span>
+					<div>Autos: <span id="zone3CarsValue">??</span></div>
+					<div>Gem.S.: <span id="zone3SpeedValue">??</span> km/h</div>
 				</div>
 			</div>
 			<div class="canvas-square" id="myCanvas4">
 				<div class="inner-content">
-					<span class="square-text-first-row">Light <span id="light-four">1</span></span>
+					<div>Autos: <span id="zone4CarsValue">??</span></div>
+					<div>Gem.S.: <span id="zone4SpeedValue">??</span> km/h</div>
 				</div>
 			</div>
 			<p>End</p>	 
