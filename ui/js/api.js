@@ -50,6 +50,7 @@ const api = {
 	},
 	msg: {
 		send: {
+			allState: () => send({ type: 'allState' }),
 			helloWorld: () => send({ type: 'helloWorld' }),
 			barrier: el => {
 				var open = el.value == "true"; // string to boolean
@@ -63,7 +64,7 @@ const api = {
 			},
 			lights: el => {
 				var value = Number(el.value);
-				send({ type: 'lights', value });
+				send({ type: 'lights', value: value / 10 });
 				api.update.lights(value);
 			},
 			matrix: el => {

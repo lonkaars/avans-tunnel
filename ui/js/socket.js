@@ -21,3 +21,7 @@ ws.addEventListener("close", () => {
 	console.error("WebSocket closed!");
 });
 
+ws.addEventListener("open", _ev => {
+	api.msg.send.allState();
+});
+

@@ -8,9 +8,10 @@
 { "type": "matrix", "state": "road_closed" }
 { "type": "matrix", "state": "disabled" }
 { "type": "lights", "value": 0 }
-{ "type": "lights", "value": 12 }
-{ "type": "lights", "value": 100 }
+{ "type": "lights", "value": 10 }
+{ "type": "lights", "value": 2 }
 { "type": "trafficLights", "state": "off" }
 { "type": "trafficLights", "state": "red" }
 { "type": "helloWorld" }
 { "type": "helloWorld" }
+{ "type": "allState" }
