@@ -15,3 +15,4 @@
 { "type": "helloWorld" }
 { "type": "helloWorld" }
 { "type": "allState" }
+{ "type":"sosBericht", "statusSOS":false }

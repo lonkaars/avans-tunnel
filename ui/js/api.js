@@ -40,13 +40,18 @@ const api = {
 			var table = document.getElementById("myTable");
 			var row = table.insertRow(1); // Insert row at the top of the table
 			var cell = row.insertCell(0); // Insert cell into the row
-			cell.innerHTML = msg; // Add content to the cell with incremented counter
+			cell.innerHTML = msg.storingBericht; // Add content to the cell with incremented counter
 			var size = table.rows.length;
 			var lastRowIndex = table.rows.length - 1; // Index of the last row
 			if (size > 11) { // Check if there is more than one row (excluding the header row)
 				table.deleteRow(lastRowIndex); // Delete the last row
 			}
+			
+			api.update.sos(msg.statusSOS);
 		},
+		sos: on => {
+			document.getElementById("sosDialog")[on ? "showModal" : "close"]();
+		}
 	},
 	msg: {
 		send: {
@@ -82,6 +87,11 @@ const api = {
 				send({ type: 'cctv', on });
 				api.update.cctv(on);
 			},
+			sos: el => {
+				var statusSOS = el.value == "true";
+				send({ type: 'sosBericht', statusSOS });
+				api.update.sos(statusSOS);
+			}
 		},
 		handle: {
 			helloWorld: msg => console.log(msg),
@@ -98,7 +108,7 @@ const api = {
 				msg.snelHedenverlating.average(),
 			]),
 			autoPerZone: msg => api.update.carCount(msg.autos),
-			sosBericht: msg => api.update.notifications(msg.storingBericht),
+			sosBericht: msg => api.update.notifications(msg),
 		},
 	},
 };
