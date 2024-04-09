@@ -10,9 +10,19 @@
 </head>
 
 <body>
+	<dialog id="setupDialog">
+		<h1>Setup</h1>
+		<div>LFV status: <span id="lfvReadyValue">offline</span></div>
+		<div class="padtop">
+			<button disabled value="true" id="lfvReadyBtn" onclick="api.msg.send.start(this)">start LFVs</button>
+		</div>
+	</dialog>
+	<script>document.getElementById("setupDialog").showModal()</script>
 	<dialog id="sosDialog">
-		<h1>SOS!!!</h1>
-		<button value="false" onclick="api.msg.send.sos(this)">stop!!</button>
+		<h1 class="blink">SOS!!!</h1>
+		<div class="padtop">
+			<button value="false" onclick="api.msg.send.sos(this)">stop!!</button>
+		</div>
 	</dialog>
 	<div class="container">
 		<div class="section overview_control">

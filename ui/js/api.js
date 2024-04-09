@@ -51,11 +51,24 @@ const api = {
 		},
 		sos: on => {
 			document.getElementById("sosDialog")[on ? "showModal" : "close"]();
+		},
+		lfvReady: msg => {
+			var { ready } = msg;
+			document.getElementById("lfvReadyValue").innerText = ready ? "online" : "offline";
+			var btn = document.getElementById("lfvReadyBtn")
+			if (ready) {
+				btn.removeAttribute("disabled");
+			} else {
+				btn.setAttribute("disabled", true);
+			}
+		},
+		start: () => {
+			document.getElementById("setupDialog").close();
 		}
 	},
 	msg: {
 		send: {
-			allState: () => send({ type: 'allState' }),
+			connected: () => send({ type: 'connected' }),
 			helloWorld: () => send({ type: 'helloWorld' }),
 			barrier: el => {
 				var open = el.value == "true"; // string to boolean
@@ -91,6 +104,10 @@ const api = {
 				var statusSOS = el.value == "true";
 				send({ type: 'sosBericht', statusSOS });
 				api.update.sos(statusSOS);
+			},
+			start: el => {
+				send({ type: 'start' });
+				api.update.start();
 			}
 		},
 		handle: {
@@ -109,6 +126,7 @@ const api = {
 			]),
 			autoPerZone: msg => api.update.carCount(msg.autos),
 			sosBericht: msg => api.update.notifications(msg),
+			lfvReady: msg => api.update.lfvReady(msg),
 		},
 	},
 };

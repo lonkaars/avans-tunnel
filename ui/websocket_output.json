@@ -14,5 +14,7 @@
 { "type": "trafficLights", "state": "red" }
 { "type": "helloWorld" }
 { "type": "helloWorld" }
-{ "type": "allState" }
-{ "type":"sosBericht", "statusSOS":false }
+{ "type": "sosBericht", "statusSOS":false }
+{ "type": "connected" }
+{ "type": "lfvReady","ready": true }
+{ "type": "start" }

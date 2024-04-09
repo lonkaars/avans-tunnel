@@ -5,7 +5,11 @@ body, html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: sans-serif;
 }
+
+* { user-select: none; }
+*:focus { outline: none; }
 
 .container {
 	display: grid;
@@ -134,6 +138,7 @@ details {
 
 details summary {
 	user-select: none;
+	cursor: pointer;
 }
 
 details[open] summary {
@@ -148,13 +153,17 @@ dialog {
 	z-index: 999;
 	min-width: 320px;
 	text-align: center;
+	border-radius: 12px;
+	border: 1px solid #0006;
+	box-shadow: 0 4px 32px -12px #000a;
 }
 ::backdrop {
-  background-color: #000;
-  opacity: 0.75;
+  background-color: #0008;
+  /* opacity: 0.6; */
+	backdrop-filter: blur(12px);
 }
 
-dialog h1 {
+.blink {
 	animation-name: blink;
 	animation-duration: 150ms;
 	animation-direction: alternate;
@@ -166,3 +175,24 @@ dialog h1 {
   from { color: red; }
   to { color: black; }
 }
+
+.padtop { margin-top: 16px; }
+dialog h1 { margin-top: 0; }
+
+button {
+	font-size: 1rem;
+	border-radius: 8px;
+	border: 1px solid #0004;
+	padding: 4px 8px;
+	cursor: pointer;
+	background-color: #0001;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+}
+
+button:not([disabled]):active {
+	background-color: #0004;
+}
+

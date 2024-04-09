@@ -22,6 +22,6 @@ ws.addEventListener("close", () => {
 });
 
 ws.addEventListener("open", _ev => {
-	api.msg.send.allState();
+	api.msg.send.connected();
 });
 
