@@ -22,7 +22,7 @@ const api = {
 		barrier: open => setPolkaDot(document.getElementById("barrierValue"), open),
 		trafficLights: state => document.getElementById("trafficLightsValue").innerText = state,
 		lights: value => {
-			document.getElementById("lightsValue").innerText = value;
+			document.getElementById("lightsValue").innerText = value * 10;
 			document.getElementById("lightsInput").value = value;
 		},
 		matrix: state => document.getElementById("matrixValue").value = state,
@@ -82,7 +82,7 @@ const api = {
 			},
 			lights: el => {
 				var value = Number(el.value);
-				send({ type: 'lights', value: value / 10 });
+				send({ type: 'lights', value });
 				api.update.lights(value);
 			},
 			matrix: el => {
