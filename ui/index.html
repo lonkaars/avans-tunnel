@@ -39,20 +39,6 @@
 							</div>
 						</li>
 						<li class="list-item"> 
-							<span id="cctvValue" class="dot"></span> CCTV
-							<div class="buttons">
-								<button value="preset1" onclick="api.msg.send.cctv(this)">Preset 1</button>
-								<button value="preset2" onclick="api.msg.send.cctv(this)">Preset 2</button>
-								<button value="preset3" onclick="api.msg.send.cctv(this)">Preset 3</button>
-								<button value="preset4" onclick="api.msg.send.cctv(this)">Preset 4</button>
-								<button value="preset5" onclick="api.msg.send.cctv(this)">Preset 5</button>
-								<button value="preset6" onclick="api.msg.send.cctv(this)">Preset 6</button>
-								<button value="preset7" onclick="api.msg.send.cctv(this)">Preset 7</button>
-								<button value="preset8" onclick="api.msg.send.cctv(this)">Preset 8</button>
-								<button value="preset9" onclick="api.msg.send.cctv(this)">Preset 9</button>
-							</div>
-						</li>
-						<li class="list-item"> 
 							<span id="barrierValue" class="dot"></span> Slagboom
 							<div class="buttons">
 								<button value="true" onclick="api.msg.send.barrier(this)">Open</button>
@@ -90,12 +76,31 @@
 				</div>
 			</details>
 
+			<details open>
+				<summary>CCTV Presets</summary>
+				<div>
+					Huidige preset: <span id="cctvPresetValue">??</span>
+				</div>
+				<div class="buttons">
+					<button value="preset1" onclick="api.msg.send.cctv(this)">Preset 1</button>
+					<button value="preset2" onclick="api.msg.send.cctv(this)">Preset 2</button>
+					<button value="preset3" onclick="api.msg.send.cctv(this)">Preset 3</button>
+					<button value="preset4" onclick="api.msg.send.cctv(this)">Preset 4</button>
+					<button value="preset5" onclick="api.msg.send.cctv(this)">Preset 5</button>
+					<button value="preset6" onclick="api.msg.send.cctv(this)">Preset 6</button>
+					<button value="preset7" onclick="api.msg.send.cctv(this)">Preset 7</button>
+					<button value="preset8" onclick="api.msg.send.cctv(this)">Preset 8</button>
+					<button value="preset9" onclick="api.msg.send.cctv(this)">Preset 9</button>
+				</div>
+			</details>
+
 			<details>
 				<summary>WebSocket Demo</summary>
 				<div class="websocket_demo">
 					<button onclick="api.msg.send.helloWorld()">Hello World!</button>
 				</div>
 			</details>
+
 		</div>
 
 		<div class="section notifications" id="sectionNotifications">

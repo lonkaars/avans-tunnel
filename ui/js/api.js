@@ -27,7 +27,9 @@ const api = {
 		},
 		matrix: state => document.getElementById("matrixValue").value = state,
 		photocell: on => setPolkaDot(document.getElementById("photocellValue"), on),
-		cctv: on => setPolkaDot(document.getElementById("cctvValue"), on),
+		cctv: preset => {
+			document.getElementById("cctvPresetValue").innerText = preset;
+		},
 		carSpeed: speed => {
 			for (let i = 0; i < 4; i++)
 				document.getElementById(`zone${i+1}SpeedValue`).innerText = speed[i];
@@ -96,9 +98,9 @@ const api = {
 				api.update.photocell(on);
 			},
 			cctv: el => {
-				var on = el.value == "true";
-				send({ type: 'cctv', on });
-				api.update.cctv(on);
+				var preset = el.value;
+				send({ type: 'cctv', preset });
+				api.update.cctv(preset);
 			},
 			sos: el => {
 				var statusSOS = el.value == "true";
@@ -117,7 +119,7 @@ const api = {
 			lights: msg => api.update.lights(msg.value),
 			matrix: msg => api.update.matrix(msg.state),
 			photocell: msg => api.update.photocell(msg.on),
-			cctv: msg => api.update.cctv(msg.on),
+			cctv: msg => api.update.cctv(msg.preset),
 			autoPerZone: msg => api.update.carCount(msg.autos),
 			sosBericht: msg => api.update.notifications(msg),
 			lfvReady: msg => api.update.lfvReady(msg),
