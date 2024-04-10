@@ -27,9 +27,6 @@ const api = {
 		},
 		matrix: state => document.getElementById("matrixValue").value = state,
 		photocell: on => setPolkaDot(document.getElementById("photocellValue"), on),
-		cctv: preset => {
-			document.getElementById("cctvPresetValue").innerText = preset;
-		},
 		carSpeed: speed => {
 			for (let i = 0; i < 4; i++)
 				document.getElementById(`zone${i+1}SpeedValue`).innerText = speed[i];
@@ -66,7 +63,12 @@ const api = {
 		},
 		start: () => {
 			document.getElementById("setupDialog").close();
-		}
+		},
+		cctvCtl: (pan, tilt, zoom) => {
+			document.getElementById("cctvPanInput").value = pan;
+			document.getElementById("cctvTiltInput").value = tilt;
+			document.getElementById("cctvZoomInput").value = zoom;
+		},
 	},
 	msg: {
 		send: {
@@ -97,20 +99,26 @@ const api = {
 				send({ type: 'photocell', on });
 				api.update.photocell(on);
 			},
-			cctv: el => {
-				var preset = el.value;
-				send({ type: 'cctv', preset });
-				api.update.cctv(preset);
-			},
 			sos: el => {
 				var statusSOS = el.value == "true";
 				send({ type: 'sosBericht', statusSOS });
 				api.update.sos(statusSOS);
 			},
-			start: el => {
+			start: () => {
 				send({ type: 'start' });
 				api.update.start();
-			}
+			},
+			cctvPreset: el => {
+				var preset = el.value;
+				send({ type: 'cctvPreset', preset });
+			},
+			cctvCtl: () => {
+				var pan = document.getElementById("cctvPanInput").value;
+				var tilt = document.getElementById("cctvTiltInput").value;
+				var zoom = document.getElementById("cctvZoomInput").value;
+				send({ type: 'cctvControl', pan, tilt, zoom });
+				api.update.cctvCtl(pan, tilt, zoom);
+			},
 		},
 		handle: {
 			helloWorld: msg => console.log(msg),
@@ -119,10 +127,10 @@ const api = {
 			lights: msg => api.update.lights(msg.value),
 			matrix: msg => api.update.matrix(msg.state),
 			photocell: msg => api.update.photocell(msg.on),
-			cctv: msg => api.update.cctv(msg.preset),
 			autoPerZone: msg => api.update.carCount(msg.autos),
 			sosBericht: msg => api.update.notifications(msg),
 			lfvReady: msg => api.update.lfvReady(msg),
+			cctvControl: msg => api.update.cctvCtl(msg.pan, msg.tilt, msg.zoom),
 		},
 	},
 };

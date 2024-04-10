@@ -201,3 +201,8 @@ button:not([disabled]):active {
 	background-color: #0004;
 }
 
+.inputlabel {
+	display: flex;
+	gap: 8px;
+	align-items: stretch;
+}
