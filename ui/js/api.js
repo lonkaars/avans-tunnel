@@ -122,7 +122,7 @@ const api = {
 		},
 		handle: {
 			helloWorld: msg => console.log(msg),
-			barrier: msg => api.update.barrier(msg.on),
+			barrier: msg => api.update.barrier(msg.open),
 			trafficLights: msg => api.update.trafficLights(msg.state),
 			lights: msg => api.update.lights(msg.value),
 			matrix: msg => api.update.matrix(msg.state),
