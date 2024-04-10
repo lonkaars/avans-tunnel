@@ -100,10 +100,15 @@ ul {
 	display: flex;
 	flex-direction: row;
 	align-items: center; /* Align squares to the center horizontally */
+	gap: 8px;
+}
+
+.bottom-right p {
+	margin: 8px;
 }
 .canvas-square {
 	border: 5px solid black;
-	width: calc(20% - 5px);
+	flex-grow: 1;
 	height: calc(40% - 5px);
 	background-color: #ccc;
 	position: relative;

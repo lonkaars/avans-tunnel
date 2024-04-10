@@ -118,12 +118,6 @@ const api = {
 			matrix: msg => api.update.matrix(msg.state),
 			photocell: msg => api.update.photocell(msg.on),
 			cctv: msg => api.update.cctv(msg.on),
-			snelheidAutoPerZone: msg => api.update.carSpeed([
-				msg.snelHedenToegang.average(),
-				msg.snelHedeningang.average(),
-				msg.snelHedencentrale.average(),
-				msg.snelHedenverlating.average(),
-			]),
 			autoPerZone: msg => api.update.carCount(msg.autos),
 			sosBericht: msg => api.update.notifications(msg),
 			lfvReady: msg => api.update.lfvReady(msg),
