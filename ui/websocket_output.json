@@ -18,3 +18,4 @@
 { "type": "connected" }
 { "type": "lfvReady","ready": true }
 { "type": "start" }
+{ "type": "cctv", "preset": "preset1" }
