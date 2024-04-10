@@ -1,7 +1,5 @@
 { "type": "photocell", "on": true }
 { "type": "photocell", "on": false }
-{ "type": "barrier", "on": false }
-{ "type": "barrier", "on": true }
 { "type": "barrier", "open": true }
 { "type": "barrier", "open": false }
 { "type": "matrix", "state": "construction" }
@@ -18,4 +16,6 @@
 { "type": "connected" }
 { "type": "lfvReady","ready": true }
 { "type": "start" }
-{ "type": "cctv", "preset": "preset1" }
+{ "type": "cctvPreset", "preset": "preset1" }
+{ "type": "cctvControl", "pan": 0, "tilt": -90, "zoom": 10 }
+{ "type": "cctvControl", "pan": 360, "tilt": 90, "zoom": 45 }
